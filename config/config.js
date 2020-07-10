@@ -21,9 +21,9 @@ const setConfig = () => {
             use_env_variable: "JAWSDB_URL",
             dialect: "mysql"
         }
-    }
-    console.log("***",config);
+    };
+    console.log("***", config);
     return JSON.stringify(config);
-}
+};
 
 module.exports = setConfig; 
