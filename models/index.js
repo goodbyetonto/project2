@@ -8,10 +8,11 @@ const basename = path.basename(module.filename);
 const env = process.env.NODE_ENV || 'development';
 const db = {}; 
 const config = {
-	username: process.env.DB_USER,
-	password: process.env.DB_PASS,
-	database: process.env.DB_database,
-	host: process.env.DB_HOST,
+	username: process.env.DB_USERNAME,//DB_USER
+	password: process.env.DB_LOCAL_PASS,//DB_PASS
+	database: process.env.DB_TEST,//DB_database,
+  host: process.env.DB_LOCAL_HOST,//DB_HOST,
+  port: 3306,
 	dialect: 'mysql'
 };
 
