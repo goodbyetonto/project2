@@ -1,42 +1,35 @@
 const Sequelize = require("sequelize");
 
 module.exports = function(sequelize, DataTypes) {
-    const wines = sequelize.define("wines", {
-        wines: {
+  const wines = sequelize.define(
+    "wines", {
             id: {
-                type: DataTypes.STRING,
                 autoIncrement: true,
-                references: {
-                    model: "user",
-                    key: "id"
-                }
-            },
-            date: {
-                type: DataTypes.INTEGER,
                 allowNull: false
             },
-            price: {
-                type: DataTypes.INTEGER,
-                allowNull: true
-            },
-            rating: { 
-                type: DataTypes.INTEGER 
+            vintage: {
+                type: DataTypes.STRING,
+                allowNull: false
             },
             country: {
                 type:DataTypes.STRING,
                 allowNull: false
             },
-            variety: {
+            county: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            county: {
+            designation:{
                 type: DataTypes.STRING,
-                allowNull: true
+                allownUll: false
             },
-            designation: {
+            points: { 
+                type: DataTypes.INTEGER,
+                allowNull: false
+            },
+            price: {
                 type: DataTypes.STRING,
-                allowNull: true
+                allowNull: false
             },
             province: {
                 type: DataTypes.STRING,
@@ -46,25 +39,33 @@ module.exports = function(sequelize, DataTypes) {
                 type: DataTypes.STRING,
                 allowNull: false
             },
+            variety: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
             winery: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            vintage: {
-                type: DataTypes.INTEGER,
-                allowNull: false
+            createdAt: {
+                type:Sequelize.DATE,
+                FIELD: 'created_at'
+            },
+            updatedAt: {
+                type: Sequelize.DATE,
+                field: 'updated_at'
             }
-        }
-    });
-
+        },  {
+                timestamps: false
+            }
+    );
     wines.associate = function(models){
-        wines.hasMany(models.User, {
+        wines.hasMany(mdoels.User, {
             foreignKey: {
-                allowNull: false
+                allownull: false
             },
             onDelete: 'cascade'
         });
     };
-
     return wines;
 };

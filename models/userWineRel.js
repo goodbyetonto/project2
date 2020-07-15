@@ -2,7 +2,7 @@ module.exports = function(sequelize, Datatypes) {
 const relationship = sequelize.define("relationship", {
         userID: {
             type: Datatypes.INTEGER,
-            unique: true
+            allowNull: false
         },
         wineID: {
             type: Datatypes.INTEGER,

@@ -9,9 +9,10 @@ const env = process.env.NODE_ENV || 'development';
 const db = {}; 
 const config = {
 	username: process.env.DB_USER,
-	password: process.env.DB_PASS,
-	database: process.env.DB_database,
-	host: process.env.DB_HOST,
+	password: process.env.DB_LOCAL_PASS,
+	database: process.env.DB_TEST,
+  host: process.env.DB_LOCAL_HOST,
+  port: 3306,
 	dialect: 'mysql'
 };
 
