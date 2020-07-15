@@ -40,11 +40,14 @@ module.exports = function(sequelize, DataTypes) {
     );
   });
 
-  // User.associate = function(models) {
-  //   User.hasmany(models.wines, {
-  //     onDelete: 'cascade'
-  //   });
-  // };
+  User.associate = function(models) {
+    User.belongsToMany(models.wines, {
+      through: "User_wines",
+      as: "wines",
+      foreignKey: "wines_id",
+      onDelete: 'cascade'
+    });
+  };
 
   return User;
 };

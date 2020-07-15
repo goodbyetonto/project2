@@ -3,55 +3,51 @@ const Sequelize = require("sequelize");
 module.exports = function(sequelize, DataTypes) {
   const wines = sequelize.define(
     "wines", {
-            id: {
-                autoIncrement: true,
-                allowNull: false
-            },
-            vintage: {
+            Vintage: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            country: {
+            Country: {
                 type:DataTypes.STRING,
                 allowNull: false
             },
-            county: {
+            County: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            designation:{
+            Designation:{
                 type: DataTypes.STRING,
                 allownUll: false
             },
-            points: { 
+            Points: { 
                 type: DataTypes.INTEGER,
                 allowNull: false
             },
-            price: {
+            Price: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            province: {
+            Province: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            title: {
+            Title: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            variety: {
+            Variety: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            winery: {
+            Winery: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            createdAt: {
+            CreatedAt: {
                 type:Sequelize.DATE,
                 FIELD: 'created_at'
             },
-            updatedAt: {
+            UpdatedAt: {
                 type: Sequelize.DATE,
                 field: 'updated_at'
             }
@@ -60,10 +56,10 @@ module.exports = function(sequelize, DataTypes) {
             }
     );
     wines.associate = function(models){
-        wines.hasMany(mdoels.User, {
-            foreignKey: {
-                allownull: false
-            },
+        wines.belongsToMany(models.User, {
+            through: "wines_User",
+            as: "User",
+            foreignKey: "User_id",
             onDelete: 'cascade'
         });
     };
