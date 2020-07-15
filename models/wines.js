@@ -42,16 +42,16 @@ module.exports = function(sequelize, DataTypes) {
             Winery: {
                 type: DataTypes.STRING,
                 allowNull: false
-            },
-            CreatedAt: {
-                type:Sequelize.DATE,
-                FIELD: 'created_at'
-            },
-            UpdatedAt: {
-                type: Sequelize.DATE,
-                field: 'updated_at'
-            }
-        },  {
+            // },
+            // CreatedAt: {
+            //     type:Sequelize.DATE,
+            //     FIELD: 'created_at'
+            // },
+            // UpdatedAt: {
+            //     type: Sequelize.DATE,
+            //     field: 'updated_at'
+            // }
+        }},   {
                 timestamps: false
             }
     );

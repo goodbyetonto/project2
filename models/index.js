@@ -8,7 +8,7 @@ const basename = path.basename(module.filename);
 const env = process.env.NODE_ENV || 'development';
 const db = {}; 
 const config = {
-	username: process.env.DB_USER,
+	username: process.env.DB_USERNAME,
 	password: process.env.DB_LOCAL_PASS,
 	database: process.env.DB_TEST,
   host: process.env.DB_LOCAL_HOST,
