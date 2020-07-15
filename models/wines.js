@@ -1,70 +1,67 @@
 const Sequelize = require("sequelize");
 
 module.exports = function(sequelize, DataTypes) {
-    const wines = sequelize.define("wines", {
-        wines: {
-            id: {
+  const wines = sequelize.define(
+    "wines", {
+            Vintage: {
                 type: DataTypes.STRING,
-                autoIncrement: true,
-                references: {
-                    model: "user",
-                    key: "id"
-                }
-            },
-            date: {
-                type: DataTypes.INTEGER,
                 allowNull: false
             },
-            price: {
-                type: DataTypes.INTEGER,
-                allowNull: true
-            },
-            rating: { 
-                type: DataTypes.INTEGER 
-            },
-            country: {
+            Country: {
                 type:DataTypes.STRING,
                 allowNull: false
             },
-            variety: {
+            County: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            county: {
+            Designation:{
                 type: DataTypes.STRING,
-                allowNull: true
+                allownUll: false
             },
-            designation: {
-                type: DataTypes.STRING,
-                allowNull: true
-            },
-            province: {
-                type: DataTypes.STRING,
-                allowNull: false
-            },
-            title: {
-                type: DataTypes.STRING,
-                allowNull: false
-            },
-            winery: {
-                type: DataTypes.STRING,
-                allowNull: false
-            },
-            vintage: {
+            Points: { 
                 type: DataTypes.INTEGER,
                 allowNull: false
-            }
-        }
-    });
-
-    wines.associate = function(models){
-        wines.hasMany(models.User, {
-            foreignKey: {
+            },
+            Price: {
+                type: DataTypes.STRING,
                 allowNull: false
             },
+            Province: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            Title: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            Variety: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            Winery: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            CreatedAt: {
+                type:Sequelize.DATE,
+                FIELD: 'created_at'
+            },
+            UpdatedAt: {
+                type: Sequelize.DATE,
+                field: 'updated_at'
+            }
+        },  {
+                timestamps: false
+            }
+    );
+    wines.associate = function(models){
+        wines.belongsToMany(models.User, {
+            through: "wines_User",
+            as: "User",
+            foreignKey: "User_id",
             onDelete: 'cascade'
         });
     };
-
     return wines;
 };

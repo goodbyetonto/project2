@@ -50,6 +50,12 @@ module.exports = function(app) {
       });
     }
   });
+
+  app.get("/api/cellar", (req, res) => {
+    db.Todo.findall({}).then((cellar) => {
+      res.json(cellar);
+    });
+  })
 };
 
 
