@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <title>Winder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../public/stylesheets/styles.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="btn btn-danger" href="/logout">
+          <span class="fa fa-arrow-circle-left"></span>Logout
+        </a>
+        <a href="/members" class="btn btn-danger notSelected">
+           Wine Cellar</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1>Search Winder</h1>
+      <hr>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-12">
+
+        <div class="card mb-4" id="cardb"> 
+          <div class="card-header">
+            Variety
+          </div>
+          <div class="card-body">
+            <input type="text" id="variety-search" class="form-control">
+            <br>
+            <div class="text-right">
+              <button class="btn btn-primary btn-md" id="search-btn">
+                <span class="fa fa-search"></span> Search</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4" id="cardb">
+          <div class="card-header">
+            Vintage
+          </div>
+          <div class="card-body">
+            <input type="text" id="vintage-search" class="form-control">
+            <br>
+            <div class="text-right">
+              <button class="btn btn-primary btn-md" id="vintage-search-btn">
+                <span class="fa fa-search"></span> Search</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4"id="cardb">
+          <div class="card-header">
+            Price
+          </div>
+          <div class="card-body">
+            <input type="text" id="price-search" class="form-control">
+            <br>
+            <div class="text-right">
+              <button class="btn btn-primary btn-md" id="price-search-btn">
+                <span class="fa fa-search"></span> Search</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-header">
+            Wine Results
+          </div>
+          <div class="card-body">
+            <div class="well" id="stats">
+              <h2 id="title">Wines:</h2>
+              <div>
+                <h6>
+                  <strong>Description </strong>
+                  <span id="description"></span>
+                </h6>
+                <h6>
+                  <strong>(Discription cont..)</strong>
+                  <span id="description1"></span>
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/search.js" type="text/javascript"></script>
+</body>
+
+</html>

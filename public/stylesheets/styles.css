@@ -1,0 +1,17 @@
+body{
+  background-image:url("https://images.alphacoders.com/732/thumb-1920-732770.jpg");
+  background-size: 100%;
+}
+
+.jumbotron {
+   max-width: 100%;
+  padding: 1%;
+  background: transparent;
+}
+
+h2{
+  padding-top: 0px;
+}
+.cardb{
+  background: transparent;
+}
