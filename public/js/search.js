@@ -8,7 +8,7 @@ $(document).ready(() => {
     const pricebtn = $(".price-search-btn");
     const searchBody = $("#row");
     const cards = $(".cardb");
-
+//future feature multi-page returns
 getWines();
 //only pulls up 10 for now. Going to change after looking at seeFood
 function getWines() {
@@ -17,9 +17,9 @@ function getWines() {
             let varietyCard = 
                     `<div class="card" style= "width: 33%">
                     <div class= "card-body>
-                    <h5 class= "card-title"> ${res[i].Title} </h5>
-                    <p class= "card-text"> Price: ${res[i].Price}, Vintage: ${res[i].Vintage}, 
-                    Points:${res[i].Points}, Winery: ${res[i].Winery}, Designation: ${res[i].Designation}
+                    <h5 class= "card-title"> ${wines[i].Title} </h5>
+                    <p class= "card-text"> Price: ${wines[i].Price}, Vintage: ${wines[i].Vintage}, 
+                    Points:${wines[i].Points}, Winery: ${wines[i].Winery}, Designation: ${wines[i].Designation}
                     </p>
                     </div>
                     </div>
