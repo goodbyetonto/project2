@@ -3,16 +3,21 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Winder</title>
+  <title>Winder - Search</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <!-- fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="../public/stylesheets/styles.css">
+  <link rel="icon" href="../public/images/winebottle.png">
+ <!-- Bootstrap CSS & JS & animate CSS-->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" type="text/css" href="../public/stylesheets/styles.css">
+
+ <!-- jQuery -->
+ <script src="https://code.jquery.com/jquery.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body class="animate__animated animate__fadeInUp">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -20,80 +25,70 @@
           <span class="fa fa-arrow-circle-left"></span>Logout
         </a>
         <a href="/members" class="btn btn-danger notSelected">
-           Wine Cellar</a>
+          Wine Cellar</a>
       </div>
     </div>
   </nav>
-
   <div class="container">
-
     <div class="jumbotron">
-      <h1>Search Winder</h1>
+      <h1>Search</h1>
       <hr>
     </div>
     <div class="row">
-
-      <div class="col-lg-12">
-
-        <div class="card mb-4" id="cardb"> 
-          <div class="card-header">
-            Variety
-          </div>
-          <div class="card-body">
-            <input type="text" id="variety-search" class="form-control">
-            <br>
-            <div class="text-right">
-              <button class="btn btn-primary btn-md" id="search-btn">
-                <span class="fa fa-search"></span> Search</button>
-            </div>
-          </div>
-        </div>
-
+      <div  class="col">
         <div class="card mb-4" id="cardb">
           <div class="card-header">
-            Vintage
+            Variety:
           </div>
           <div class="card-body">
-            <input type="text" id="vintage-search" class="form-control">
+            <input type="text" id="Input-search" class="form-control">
             <br>
             <div class="text-right">
-              <button class="btn btn-primary btn-md" id="vintage-search-btn">
-                <span class="fa fa-search"></span> Search</button>
+              <button type="submit" class="btn btn-primary btn-md" id="variety-search">
+                <span class="fa fa-search"></span>Search</button>
             </div>
           </div>
         </div>
-
         <div class="card mb-4"id="cardb">
           <div class="card-header">
-            Price
+            Vintage:
           </div>
           <div class="card-body">
-            <input type="text" id="price-search" class="form-control">
+            <input type="text" id="vintage-search" class="form-control" placeholder='Enter a year'>
             <br>
             <div class="text-right">
-              <button class="btn btn-primary btn-md" id="price-search-btn">
-                <span class="fa fa-search"></span> Search</button>
+              <button type="submit" class="btn btn-primary btn-md" id="vintage-search-btn">
+                <span class="fa fa-search"></span>Search</button>
             </div>
           </div>
         </div>
-
         <div class="card mb-4">
           <div class="card-header">
-            Wine Results
+            Price:
           </div>
-          <div class="card-body">
-            <div class="well" id="stats">
-              <h2 id="title">Wines:</h2>
-              <div>
-                <h6>
-                  <strong>Description </strong>
-                  <span id="description"></span>
-                </h6>
-                <h6>
-                  <strong>(Discription cont..)</strong>
-                  <span id="description1"></span>
-                </h6>
-              </div>
+          <div class="card-body" id="cardb">
+            <p>Minimum Price</p>
+            <input type="text" id="price-lower-1" class="form-control">
+            <br>
+            <p>Maximum Price</p>
+            <input type="text" id="price-upper-2" class="form-control">
+            <br>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary btn-md" id="price-search-btn">
+                <span class="fa fa-search"></span>Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-header">
+              Search Results
+            </div>
+            <div class="card-body" id="detail-section">
+              <!-- Content will go in here -->
             </div>
           </div>
         </div>
@@ -101,6 +96,7 @@
     </div>
   </div>
   <script src="js/search.js" type="text/javascript"></script>
+  <script src="../views/wines.handlebars"></script>
 </body>
 
 </html>

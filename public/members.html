@@ -5,7 +5,9 @@
 
   <meta charset="UTF-8">
   <title>Winder - Your Cellar</title>
-  <!-- Bootstrap CSS & JS -->
+  <!-- Bootstrap CSS & JS & animate CSS -->
+  <link rel="icon" href="../public/images/winebottle.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="../public/stylesheets/styles.css">
@@ -17,7 +19,7 @@
 
 </head>
 
-<body>
+<body class="animate__animated animate__fadeInUp">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -25,7 +27,7 @@
           <span class="fa fa-arrow-circle-left"></span>Logout
         </a>
         <a href="/search" class="btn btn-danger notSelected">
-           Search Wine</a>
+           Search</a>
       </div>
     </div>
   </nav>
@@ -33,13 +35,6 @@
     <h2>Your Cellar</h2>
 
     <div class="jumbotron jumbotron-fluid">
-      <div class="optionsDiv">
-        <hr>
-
-        <a href="" class="btn btn-danger btn-lg notSelected" id="search">
-          Add Wine
-          <span class="fa fa-plus"></span></a>
-      </div>
     </div>
 
     <div class="container">
@@ -62,6 +57,8 @@
  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="js/members.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/cellar.js"></script>
+
 
 </body>
 
