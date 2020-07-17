@@ -59,8 +59,7 @@ module.exports = function(sequelize, DataTypes) {
         wines.belongsToMany(models.User, {
             through: "wines_User",
             as: "User",
-            foreignKey: "User_id",
-            onDelete: 'cascade'
+            foreignKey: "User_id"
         });
     };
     return wines;
