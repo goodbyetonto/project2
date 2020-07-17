@@ -1,10 +1,12 @@
 body{
   background-image:url("https://images.alphacoders.com/732/thumb-1920-732770.jpg");
   background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .jumbotron {
-   max-width: 100%;
+  max-width: 100%;
   padding: 1%;
   background: transparent;
 }
@@ -12,6 +14,13 @@ body{
 h2{
   padding-top: 0px;
 }
-.cardb{
-  background: transparent;
+.card{
+  background-color: whitesmoke;
 }
+.animate__animated.animate__fadeInDown{
+  --animate-duration: 2s;
+}
+.animate__animated.animate__fadeInUp{
+  --animate-duration: 2s;
+}
+
