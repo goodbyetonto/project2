@@ -8,7 +8,6 @@ module.exports = (app) => {
                 Variety: req.params.variety
             }
         }).then((dbWines) => {
-            console.log(dbWines.slice(0,11));
             res.json(dbWines.slice(0,11));
         }).catch((err) => {
             if (err) return console.log(err);
@@ -35,7 +34,7 @@ module.exports = (app) => {
         }).then((dbWines) => {
             const filteredArray = []; 
             dbWines.forEach(wine => {
-                if (wine.Vintage.slice(-2) === req.body.vintage) {
+                if (wine.Vintage.slice(-2) === req) {
                     filteredArray.push(wine); 
                 }
             });
@@ -47,6 +46,7 @@ module.exports = (app) => {
     });
 
     app.get("/api/wines/", (req, res) => {
+        console.log("API call for all wines"); 
         db.wines.findAll({})
             .then((dbWines) => {
                 res.json(dbWines.slice(0,101));

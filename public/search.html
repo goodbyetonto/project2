@@ -6,15 +6,16 @@
   <title>Winder - Search</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../public/images/winebottle.png">
- <!-- Bootstrap CSS & JS & animate CSS-->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
- <link rel="stylesheet" type="text/css" href="../public/stylesheets/styles.css">
+  <!-- Bootstrap CSS & JS & animate CSS-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../public/stylesheets/styles.css">
 
- <!-- jQuery -->
- <script src="https://code.jquery.com/jquery.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <!-- jQuery -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 
 <body class="animate__animated animate__fadeInUp">
@@ -35,26 +36,26 @@
       <hr>
     </div>
     <div class="row">
-      <div  class="col">
-        <div class="card mb-4" id="cardb">
+      <div class="col">
+        <div class="card mb-4 cardb">
           <div class="card-header">
             Variety:
           </div>
           <div class="card-body">
-            <input type="text" id="Input-search" class="form-control">
+            <input type="text" onfocus="this.value=''" value="Enter a wine variety (ie. Port, Chardonnay, Merlot, etc" id="input-search" class="form-control">
             <br>
             <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="variety-search">
+              <button type="submit" class="btn btn-primary btn-md" id="variety-search-btn">
                 <span class="fa fa-search"></span>Search</button>
             </div>
           </div>
         </div>
-        <div class="card mb-4"id="cardb">
+        <div class="card mb-4 cardb">
           <div class="card-header">
             Vintage:
           </div>
           <div class="card-body">
-            <input type="text" id="vintage-search" class="form-control" placeholder='Enter a year'>
+            <input type="text" onfocus="this.value=''" value="Enter a wine vintage (ie. 1982)" id="vintage-search" class="form-control" placeholder="Enter a year">
             <br>
             <div class="text-right">
               <button type="submit" class="btn btn-primary btn-md" id="vintage-search-btn">
@@ -68,10 +69,10 @@
           </div>
           <div class="card-body" id="cardb">
             <p>Minimum Price</p>
-            <input type="text" id="price-lower-1" class="form-control">
+            <input type="text" onfocus="this.value=''" value="Enter a minimum price value" id="price-lower-1" class="form-control">
             <br>
             <p>Maximum Price</p>
-            <input type="text" id="price-upper-2" class="form-control">
+            <input type="text" onfocus="this.value=''" value="Enter a maximum price value" id="price-upper-2" class="form-control">
             <br>
             <div class="text-right">
               <button type="submit" class="btn btn-primary btn-md" id="price-search-btn">
