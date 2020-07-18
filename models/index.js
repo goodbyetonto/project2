@@ -1,48 +1,48 @@
-'use strict';
-
-require('dotenv').config();
-const fs = require('fs');
-const path = require('path');
-const Sequelize = require('sequelize');
-const basename = path.basename(module.filename);
-const env = process.env.NODE_ENV || 'development';
-const db = {}; 
-const config = {
-	username: process.env.DB_USERNAME,
-	password: process.env.DB_LOCAL_PASS,
-	database: process.env.DB_TEST,
-  host: process.env.DB_LOCAL_HOST,
-  port: 3306,
-	dialect: 'mysql'
-};
 // 'use strict';
-// require('dotenv').config(); 
-// var fs = require('fs');
-// var path = require('path');
-// var Sequelize = require('sequelize');
-// var basename = path.basename(module.filename);
-// var env = process.env.NODE_ENV || 'development';
+
+// require('dotenv').config();
+// const fs = require('fs');
+// const path = require('path');
+// const Sequelize = require('sequelize');
+// const basename = path.basename(module.filename);
+// const env = process.env.NODE_ENV || 'development';
 // const db = {}; 
-// var config = {
-//   "development": {
-//     "username": process.env.DB_USER,
-//     "password": process.env.DB_PASS,
-//     "database": process.env.DB_database,
-//     "host": process.env.DB_HOST,//"127.0.0.1",
-//     "dialect": "mysql"
-//   },
-//   "test": {
-//     "username": "root",
-//     "password": null,
-//     "database": "database_test",
-//     "host": "127.0.0.1",
-//     "dialect": "mysql"
-//   },
-//   "production": {
-//     "use_env_variable": "JAWSDB_URL",
-//     "dialect": "mysql"
-//   }
-// }[env];
+// const config = {
+// 	username: process.env.DB_USERNAME,
+// 	password: process.env.DB_LOCAL_PASS,
+// 	database: process.env.DB_TEST,
+//   host: process.env.DB_LOCAL_HOST,
+//   port: 3306,
+// 	dialect: 'mysql'
+};
+'use strict';
+require('dotenv').config(); 
+var fs = require('fs');
+var path = require('path');
+var Sequelize = require('sequelize');
+var basename = path.basename(module.filename);
+var env = process.env.NODE_ENV || 'development';
+const db = {}; 
+var config = {
+  "development": {
+    "username": process.env.DB_USER,
+    "password": process.env.DB_PASS,
+    "database": process.env.DB_database,
+    "host": process.env.DB_HOST,//"127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
+  }
+}[env];
 console.log(config);
 console.log("config"); 
 console.log(config); 
