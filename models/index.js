@@ -14,7 +14,7 @@
 //   host: process.env.DB_LOCAL_HOST,
 //   port: 3306,
 // 	dialect: 'mysql'
-};
+//};
 'use strict';
 require('dotenv').config(); 
 var fs = require('fs');
