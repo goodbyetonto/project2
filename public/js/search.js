@@ -55,21 +55,23 @@ $(document).ready(() => {
     $(vintageBtn).on("click", () => {
         const vintageVal = vintageInput.val()
         cards.empty();
-        $.get(`/api/wines/${vintageVal}`, (data) => {
-            console.log(vintageVal);
-            for (let i = 0; i < data.length; i++) {
-                let vinCard =
-                    `<div class="card" style= "width: 33%">
-            <div class= "card-body>
-            <h5 class= "card-title"> ${data[i].Title} </h5>
-            <p class= "card-text"> Price: ${data[i].Price}, Vintage: ${data[i].Vintage}, 
-            Points: ${data[i].Points}, Winery: ${data[i].Winery}, 
-            Designation: ${data[i].Designation}, Variety: ${data[i].Designation}
-            </p>
-            </div>
-            </div>`;
-
-                cards.append(vinCard);
+        $.get(`/api/wines/vintage/${vintageVal}`).then((data) => {
+            if (data.length === 0) {
+                window.alert("There are no wines with this vintage. Please enter another vintage.")
+            } else {
+                for (let i = 0; i < data.length; i++) {
+                    let vinCard =
+                        `<div class="card" style= "width: 33%">
+                <div class= "card-body>
+                <h5 class= "card-title"> ${data[i].Title} </h5>
+                <p class= "card-text"> Price: ${data[i].Price}, Vintage: ${data[i].Vintage}, 
+                Points: ${data[i].Points}, Winery: ${data[i].Winery}, 
+                Designation: ${data[i].Designation}, Variety: ${data[i].Designation}
+                </p>
+                </div>
+                </div>`;
+                    cards.append(vinCard);
+                }
             }
         });
     });

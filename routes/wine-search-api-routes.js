@@ -30,16 +30,17 @@ module.exports = (app) => {
     });
 
     app.get("/api/wines/vintage/:vintage", (req, res) => {
+        console.log("API call for vintage filter"); 
+        console.log(req.params.vintage); 
         db.wines.findAll({
         }).then((dbWines) => {
             const filteredArray = []; 
             dbWines.forEach(wine => {
-                if (wine.Vintage.slice(-2) === req) {
+                if (wine.Vintage.slice(-2) === req.params.vintage.slice(-2)) {
                     filteredArray.push(wine); 
                 }
             });
-            console.log(filteredArray.slice(0,11)); 
-            res.json(filteredArray.slice(1,11));
+            res.json(filteredArray.slice(0,11));
         }).catch((err) => {
             if (err) return console.log(err);
         })
