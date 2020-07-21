@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     "wines", {
             Vintage: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: false,
             },
             Country: {
                 type:DataTypes.STRING,
