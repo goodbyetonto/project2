@@ -1,11 +1,16 @@
 const db = require("../models");
+const { Sequelize } = require("../models");
+const Op = Sequelize.Op; 
 
 module.exports = (app) => {
-    // Find all wines that match filtered search and return them to the user with res.json
-    app.get("/api/wines/variety/:variety", (req, res) => {
+    // Find all wines that contain filtered search and return them to the user with res.json
+    app.post("/api/wines/variety", (req, res) => {
+        console.log("API call for variety filter")
         db.wines.findAll({
             where: {
-                Variety: req.params.variety
+                Variety: {
+                    [Op.substring]: req.body.variety
+                }
             }
         }).then((dbWines) => {
             res.json(dbWines.slice(0,11));
@@ -14,12 +19,14 @@ module.exports = (app) => {
         })
     });
 
-    app.get("/api/wines/price/:price", (req, res) => {
+    app.post("/api/wines/price", (req, res) => {
+        console.log("API call for price filter"); 
         db.wines.findAll({
         }).then((dbWines) => {
             const filteredArray = [];
             dbWines.forEach(wine => {
-                if (wine.Price >= req.body.lowerLimit && wine.Price <= req.body.upperLimit) {
+                const priceInt = Number(wine.Price.replace(/[^0-9.-]+/,"")); 
+                if (priceInt >= req.body.lower && priceInt <= req.body.upper) {
                     filteredArray.push(wine);
                 }
             });
@@ -29,18 +36,16 @@ module.exports = (app) => {
         })
     });
 
-    app.get("/api/wines/vintage/:vintage", (req, res) => {
+    app.post("/api/wines/vintage", (req, res) => {
         console.log("API call for vintage filter"); 
-        console.log(req.params.vintage); 
         db.wines.findAll({
-        }).then((dbWines) => {
-            const filteredArray = []; 
-            dbWines.forEach(wine => {
-                if (wine.Vintage.slice(-2) === req.params.vintage.slice(-2)) {
-                    filteredArray.push(wine); 
+            where: {
+                Vintage: {
+                    [Op.endsWith]: req.body.vintage
                 }
-            });
-            res.json(filteredArray.slice(0,11));
+            }
+        }).then((dbWines) => {
+            res.json(dbWines.slice(0,11)); 
         }).catch((err) => {
             if (err) return console.log(err);
         })
