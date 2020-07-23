@@ -24,7 +24,7 @@ $(document).ready(() => {
                     </div>
                     `;
                 cards.append(winesCard);
-            }
+            }; 
         });
 
         $(varietyBtn).on("click", () => {
@@ -50,10 +50,10 @@ $(document).ready(() => {
                                 </div>
                                 </div>`;
                             cards.append(varietyCard);
-                        }
-                    }                 
+                        }; 
+                    }; 
                 });
-            }
+            }; 
         });
 
 
@@ -81,31 +81,40 @@ $(document).ready(() => {
                                 </div>
                                 </div>`;
                             cards.append(vinCard);
-                        }
-                    }
+                        }; 
+                    }; 
                 });
-            }
+            }; 
         });
 
         $(priceBtn).on("click", () => {
             const lowerVal = priceLower.val();
             const upperVal = priceUpper.val();
-            cards.empty();
-            $.post("/api/wines/price", { lower: lowerVal, upper: upperVal }).then((data) => {
-                for (let i = 0; i < data.length; i++) {
-                    let priceCard =
-                        `<div class="card" style= "width: 33%">
-                <div class= "card-body>
-                <h5 class= "card-title"> ${data[i].Title} </h5>
-                <p class= "card-text"> Price: ${data[i].Price}, Vintage: ${data[i].Vintage}, 
-                Winery :${data[i].Points}, Winery: ${data[i].Winery}, 
-                Designation: ${data[i].Designation}, Variety: ${data[i].Designation}
-                </p>
-                </div>
-                </div>`;
-                    cards.append(priceCard);
-                }
-            });
+            const numbers = /^[0-9]\d*$/;
+            if (!(lowerVal.match(numbers)) || !(upperVal.match(numbers))) {
+                window.alert("You entered alpha characters in your price(s). Please enter only numeric characters.");
+            } else {
+                cards.empty();
+                $.post("/api/wines/price", { lower: lowerVal, upper: upperVal }).then((data) => {
+                    if (data.length === 0) {
+                        window.alert("Your search returned no results. Please try another set of prices."); 
+                    } else {
+                        for (let i = 0; i < data.length; i++) {
+                            let priceCard =
+                                `<div class="card" style= "width: 33%">
+                                <div class= "card-body>
+                                <h5 class= "card-title"> ${data[i].Title} </h5>
+                                <p class= "card-text"> Price: ${data[i].Price}, Vintage: ${data[i].Vintage}, 
+                                Winery :${data[i].Points}, Winery: ${data[i].Winery}, 
+                                Designation: ${data[i].Designation}, Variety: ${data[i].Designation}
+                                </p>
+                                </div>
+                                </div>`;
+                            cards.append(priceCard);
+                        }; 
+                    };
+                });
+            }; 
         });
     };
 }); 
